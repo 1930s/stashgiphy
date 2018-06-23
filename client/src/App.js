@@ -1,37 +1,57 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import './styles/App.css';
 
-import logo from './logo.svg';
-
-import './App.css';
+import Search from './components/Search';
+import Results from './components/Results';
 
 class App extends Component {
-  state = {
-    response: ''
-  };
-
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
+  
+  constructor() {
+    super();
+    this.state = {
+      searchQuery: '',
+      results: []
+    }
+      
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
+  componentDidMount() {
+    axios.get('/api/trending')
+    .then(response => {
+      let results = response.data;
+      this.setState({ results });
+    });
+  }
 
-    if (response.status !== 200) throw Error(body.message);
+  handleChange(e) {
+    let searchQuery = e.target.value;
+    this.setState({ searchQuery });
+  }
 
-    return body;
-  };
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.searchQuery === '') return;
+    
+    let searchQuery = this.state.searchQuery.split(' ').join('+');
+    axios.get(`/api/gifs?search=${searchQuery}`)
+      .then(response => {
+        let results = response.data;
+        this.setState({ results });
+      });
+  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">{this.state.response}</p>
+        <Search
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          search={this.state.searchQuery}
+        />
+        <Results results={this.state.results} />
       </div>
     );
   }
