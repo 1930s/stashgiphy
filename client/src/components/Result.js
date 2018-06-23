@@ -35,8 +35,8 @@ class Result extends Component {
   render() {
     return (
       <div className="result-container" onClick={() => this.handleFavorite(this.props.gif)}>
-        {this.state.isFavorite ? <img className='result-like' src={like}/> : null}
-        <img className="result-image" src={this.props.gif.url}/>
+        {this.state.isFavorite ? <img className='result-like' src={like} alt='like'/> : null}
+        <img className="result-image" src={this.props.gif.url} alt='gif'/>
       </div>
     )
   }

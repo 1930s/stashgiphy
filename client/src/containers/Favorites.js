@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '.././styles/Favorites.css';
 
-import Results from './Results';
+import Results from '../components/Results';
 
 
 class Favorites extends Component {
@@ -16,6 +16,7 @@ class Favorites extends Component {
   }
   
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.hydrateFavoritesState();
   }
   

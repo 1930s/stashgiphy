@@ -12,7 +12,9 @@ app.get('/api/gifs', (req, res) => {
       return {
         url: gif.images.fixed_height.url,
         bitly_url: gif.bitly_url,
-        id: gif.id
+        id: gif.id,
+        height: gif.images.fixed_height.height,
+        width: gif.images.fixed_height.width
       }
     })))
     .catch(err => console.error(err));

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './styles/App.css';
+import '../styles/App.css';
 
-import Search from './components/Search';
-import Results from './components/Results';
+import Search from '../components/Search';
+import Results from '../components/Results';
 
-class App extends Component {
+class Home extends Component {
   
   constructor() {
     super();
@@ -58,4 +58,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;
