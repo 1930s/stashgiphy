@@ -21,9 +21,15 @@ class Result extends Component {
     if (localStorage.getItem(gif.id)) {
       localStorage.removeItem(gif.id);
       this.setState({ isFavorite: false});
+      if (this.props.hydrateFavoritesState) {
+        this.props.hydrateFavoritesState();
+      }
     } else {
       localStorage.setItem(gif.id, JSON.stringify(gif));
       this.setState({ isFavorite: true});
+      if (this.props.hydrateFavoritesState) {
+        this.props.hydrateFavoritesState();
+      }
     }
   }
   render() {

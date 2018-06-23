@@ -4,11 +4,33 @@ import '.././styles/Favorites.css';
 
 import Results from './Results';
 
-const Favorites = () => (
-  <div className='favorites-container'>
-    <Results  results={Object.values(localStorage)}/>
-    <Link to='/'><button className="favorites-btn btn">BACK TO HOME</button></Link>
-  </div>
-)
+
+class Favorites extends Component {
+  constructor() {
+    super();
+    this.state = {
+      favorites: []
+    }
+    
+    this.hydrateFavoritesState = this.hydrateFavoritesState.bind(this);
+  }
+  
+  componentDidMount() {
+    this.hydrateFavoritesState();
+  }
+  
+  hydrateFavoritesState() {
+    this.setState({favorites: Object.values(localStorage)});
+  }
+  
+  render() {
+    return (
+      <div className='favorites-container'>
+        <Results  results={this.state.favorites} hydrateFavoritesState={this.hydrateFavoritesState}/>
+        <Link to='/'><button className="favorites-btn btn">BACK TO HOME</button></Link>
+      </div>
+    );
+  }
+}
 
 export default Favorites;
