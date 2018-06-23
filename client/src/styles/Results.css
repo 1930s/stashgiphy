@@ -6,3 +6,9 @@
   width: 90%;
   margin-top: 91px;
 }
+
+@media screen and (max-device-width: 767px) {
+  .results-container {
+    margin-top: 0;
+  }
+}
