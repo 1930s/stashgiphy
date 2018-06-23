@@ -11,12 +11,18 @@ class Result extends Component {
     this.handleFavorite = this.handleFavorite.bind(this);
   }
   
+  componentDidUpdate(prevProps) {
+    if (prevProps.gif !== this.props.gif) {
+      this.setState({ isFavorite: localStorage.getItem(this.props.gif.id) });
+    }
+  }
+  
   handleFavorite(gif) {
     if (localStorage.getItem(gif.id)) {
       localStorage.removeItem(gif.id);
       this.setState({ isFavorite: false});
     } else {
-      localStorage.setItem(gif.id, gif);
+      localStorage.setItem(gif.id, JSON.stringify(gif));
       this.setState({ isFavorite: true});
     }
   }

@@ -6,7 +6,12 @@ import Result from './Result.js';
 
 const Results = (props) => (
   <div className="results-container">
-    {props.results.map(gif => <Result gif={gif}/>)}
+    {props.results.map(gif => {
+      if (typeof gif === 'string') {
+        return <Result gif={JSON.parse(gif)}/>
+      }
+      return <Result gif={gif}/>
+    })}
   </div>
 )
 

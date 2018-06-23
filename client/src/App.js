@@ -40,6 +40,7 @@ class App extends Component {
       .then(response => {
         let results = response.data;
         this.setState({ results });
+        window.scrollTo(0, 0);
       });
   }
 

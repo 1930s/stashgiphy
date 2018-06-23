@@ -1,10 +1,11 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '.././styles/Search.css';
 
 const Search = (props) => (
   <div className="search-container">
-  <button className="favorites-btn btn" type="submit">FAVORITES</button>
+  <Link to='/favorites'><button className="favorites-btn btn">FAVORITES</button></Link>
     <form className="search-form" onSubmit={props.handleSubmit}>
       <input
         type="text" className="search input"
