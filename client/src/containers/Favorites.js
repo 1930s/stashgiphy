@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '.././styles/Favorites.css';
 
 import Results from '../components/Results';
 
@@ -26,9 +25,9 @@ class Favorites extends Component {
   
   render() {
     return (
-      <div className='favorites-container'>
+      <div className='App'>
         <Results  results={this.state.favorites} hydrateFavoritesState={this.hydrateFavoritesState}/>
-        <Link to='/'><button className="favorites-btn btn">BACK TO HOME</button></Link>
+        <Link to='/'><button className="favorites-btn">BACK TO HOME</button></Link>
       </div>
     );
   }

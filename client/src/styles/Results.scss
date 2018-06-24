@@ -1,0 +1,13 @@
+@import './mixins.scss';
+
+.results-container {
+  @include flex-row;
+
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 91px;
+  
+  @include mobile-devices {
+    margin-top: 0;
+  }
+}

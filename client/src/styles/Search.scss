@@ -1,0 +1,52 @@
+@import './mixins.scss';
+
+.search-container {
+  @include flex-row;
+
+  position: fixed;
+  z-index: 1;
+  background-color: #272727;
+  width: 100%;
+  @include mobile-devices {
+    position: relative;
+  }
+}
+
+.search-form {
+  @include flex-row;
+
+  align-items: center;
+  margin: 10px;
+  width: 60%;
+  
+  @include mobile-devices {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.input {
+  font-family: "Poppins";
+  border: none;
+  height: 50px;
+  width: 70%;
+  border-radius: 35px;
+  padding-left: 5%;
+  font-size: 20px;
+  font-weight: bold;
+  
+  &:focus {
+      outline: 0;
+  }
+
+  @include mobile-devices {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+}
+
+.submit-btn {
+  @include btn;
+
+  background-color: #42218a;
+}

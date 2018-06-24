@@ -1,12 +1,14 @@
 .search-container {
-  position: fixed;
-  z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: fixed;
+  z-index: 1;
   background-color: #272727;
-  width: 100%;
-}
+  width: 100%; }
+  @media screen and (max-device-width: 767px) {
+    .search-container {
+      position: relative; } }
 
 .search-form {
   display: flex;
@@ -14,8 +16,11 @@
   justify-content: center;
   align-items: center;
   margin: 10px;
-  width: 60%;
-}
+  width: 60%; }
+  @media screen and (max-device-width: 767px) {
+    .search-form {
+      flex-direction: column;
+      width: 100%; } }
 
 .input {
   font-family: "Poppins";
@@ -25,28 +30,23 @@
   border-radius: 35px;
   padding-left: 5%;
   font-size: 20px;
-  font-weight: bold
-}
-
-.input:focus {
-  outline: 0;
-}
+  font-weight: bold; }
+  .input:focus {
+    outline: 0; }
+  @media screen and (max-device-width: 767px) {
+    .input {
+      width: 90%;
+      margin-bottom: 10px; } }
 
 .submit-btn {
-  background-color: #42218a;
-}
-
-@media screen and (max-device-width: 767px) {
-  .search-container {
-    position: relative;
-  }
-  .search-form {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .input {
-    width: 90%;
-    margin-bottom: 10px;
-  }
-}
+  border: none;
+  color: white;
+  height: 50px;
+  width: 150px;
+  margin-left: 10px;
+  border-radius: 35px;
+  font-size: 100%;
+  font-weight: bold;
+  background-color: #42218a; }
+  .submit-btn:hover, .submit-btn:focus {
+    outline: 0; }

@@ -12,7 +12,7 @@ const Search = (props) => (
         value={props.searchQuery}
         onChange={props.handleChange}
       />
-    <button className="submit-btn btn" type="submit">SUBMIT</button>
+    <button className="submit-btn" type="submit">SUBMIT</button>
   </form>
 </div>
 );
